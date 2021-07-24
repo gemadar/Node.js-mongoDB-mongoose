@@ -18,6 +18,8 @@ const customerSchema = new mongoose.Schema(
       createdAt: "crearedAt",
       updatedAt: "updatedAt",
     },
+    toObject: { getters: true },
+    toJSON: { getters: true },
   }
 );
 

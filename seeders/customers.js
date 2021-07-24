@@ -3,7 +3,10 @@ const { customer } = require("../models");
 
 exports.addCustomers = async () => {
   for (let i = 0; i < 10; i++) {
-    await customer.create({ name: faker.name.findName() });
+    await customer.create({
+      name: faker.name.findName(),
+      photo: faker.image.imageUrl(),
+    });
   }
 
   console.log("Customer has been added");
