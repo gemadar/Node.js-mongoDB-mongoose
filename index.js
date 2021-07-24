@@ -8,9 +8,10 @@ const app = express(); // Make express app
 
 /* Import routes */
 const transactions = require("./routes/transactions");
+const customers = require("./routes/customers");
 
 /* Import errorHandler */
-const errorHandler = require("./middlewares/errorHandler");
+const errorHandler = require("./middlewares/errorHandlers");
 
 /* Enable req.body */
 app.use(express.json()); // Enable req.body JSON
@@ -29,6 +30,7 @@ app.use(express.static("public"));
 
 /* Use routes */
 app.use("/transactions", transactions);
+app.use("/customers", customers);
 
 /* If routes not found */
 app.all("*", (req, res, next) => {

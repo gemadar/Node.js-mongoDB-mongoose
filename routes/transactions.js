@@ -11,6 +11,8 @@ const {
   createTransaction,
   getAllTransactions,
   getDetailTransaction,
+  updateTransaction,
+  deleteTransaction,
 } = require("../controllers/transactions");
 
 // Make router
