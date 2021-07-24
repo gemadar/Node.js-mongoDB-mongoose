@@ -8,7 +8,7 @@ const app = express(); // Make express app
 
 /* Import routes */
 const transactions = require("./routes/transactions");
-const customers = require("./routes/customers");
+const suppliers = require("./routes/suppliers");
 
 /* Import errorHandler */
 const errorHandler = require("./middlewares/errorHandlers");
@@ -22,15 +22,13 @@ app.use(
   })
 );
 
-/* Enable req.body and req.files (form-data) */
 app.use(fileUpload());
 
-/* Make public folder as static */
 app.use(express.static("public"));
 
 /* Use routes */
 app.use("/transactions", transactions);
-app.use("/customers", customers);
+app.use("/suppliers", suppliers);
 
 /* If routes not found */
 app.all("*", (req, res, next) => {

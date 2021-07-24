@@ -22,7 +22,7 @@ const supplierSchema = new mongoose.Schema(
 );
 
 function getPhoto(photo) {
-  if (!photo || photo.include("https") || photo.includes("http")) {
+  if (!photo || photo.includes("https") || photo.includes("http")) {
     return photo;
   }
 
