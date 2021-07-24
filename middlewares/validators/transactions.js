@@ -2,6 +2,18 @@ const validator = require("validator");
 const mongoose = require("mongoose");
 const { good, customer } = require("../../models");
 
+exports.getDetailValidator = async (req, res, next) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return next({ message: "id is not valid", statusCode: 400 });
+    }
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.createOrUpdateTransactionValidator = async (req, res, next) => {
   try {
     const errorMessages = [];

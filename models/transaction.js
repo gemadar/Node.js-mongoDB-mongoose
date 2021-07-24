@@ -7,9 +7,10 @@ const transactionSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.Mixed,
       required: true,
     },
-    price: {
-      type: mongoose.Schema.ObjectId,
+    customer: {
+      type: mongoose.Types.ObjectId,
       required: true,
+      ref: "customer",
     },
     quantity: {
       type: Number,

@@ -10,7 +10,7 @@ const app = express(); // Make express app
 const transactions = require("./routes/transactions");
 
 /* Import errorHandler */
-const errorHandler = require("./middlewares/errorHandlers");
+const errorHandler = require("./middlewares/errorHandler");
 
 /* Enable req.body */
 app.use(express.json()); // Enable req.body JSON
@@ -21,8 +21,10 @@ app.use(
   })
 );
 
+/* Enable req.body and req.files (form-data) */
 app.use(fileUpload());
 
+/* Make public folder as static */
 app.use(express.static("public"));
 
 /* Use routes */
