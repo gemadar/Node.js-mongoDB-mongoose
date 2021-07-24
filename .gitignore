@@ -2,3 +2,5 @@ node_modules
 package-lock.json
 .env.development
 .env.test
+public/images/*
+!public/images/readme.md

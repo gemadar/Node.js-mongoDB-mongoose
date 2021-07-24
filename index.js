@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+	path: `.env.${process.env.NODE_ENV}`,
 }); // Config environment
 const express = require("express"); // Import express
 const fileUpload = require("express-fileupload");
@@ -9,6 +9,7 @@ const app = express(); // Make express app
 /* Import routes */
 const transactions = require("./routes/transactions");
 const customers = require("./routes/customers");
+const goods = require("./routes/goods");
 
 /* Import errorHandler */
 const errorHandler = require("./middlewares/errorHandlers");
@@ -17,9 +18,9 @@ const errorHandler = require("./middlewares/errorHandlers");
 app.use(express.json()); // Enable req.body JSON
 // Enable url-encoded
 app.use(
-  express.urlencoded({
-    extended: true,
-  })
+	express.urlencoded({
+		extended: true,
+	})
 );
 
 /* Enable req.body and req.files (form-data) */
@@ -31,14 +32,15 @@ app.use(express.static("public"));
 /* Use routes */
 app.use("/transactions", transactions);
 app.use("/customers", customers);
+app.use("/goods", goods);
 
 /* If routes not found */
 app.all("*", (req, res, next) => {
-  try {
-    next({ message: "Endpoint not Found", statusCode: 404 });
-  } catch (error) {
-    next(error);
-  }
+	try {
+		next({ message: "Endpoint not Found", statusCode: 404 });
+	} catch (error) {
+		next(error);
+	}
 });
 
 /* User errorHandler */
