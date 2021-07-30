@@ -28,6 +28,7 @@ const goodSchema = new mongoose.Schema(
       createdAt: "crearedAt",
       updatedAt: "updatedAt",
     },
+    toJson: { getters: true },
   }
 );
 
